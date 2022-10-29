@@ -20,6 +20,19 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Home'),
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+              onPressed: () async {
+                await Navigator.of(context).pushNamed(
+                  Routes.USUARIOS,
+                );
+
+                setState(
+                  () {},
+                );
+              },
+              icon: const Icon(Icons.person))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -63,8 +76,6 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               const SizedBox(width: 20),
-                              const Icon(Icons.calendar_month),
-                              const SizedBox(width: 20),
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,6 +92,21 @@ class _HomePageState extends State<HomePage> {
                                     Text(
                                       item.descricao,
                                     ),
+                                    IconButton(
+                                        onPressed: () async {
+                                          Database().removeLembrete(item);
+                                          setState(() {});
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            const SnackBar(
+                                              content:
+                                                  Text('Excluido com sucesso'),
+                                              backgroundColor: Colors.red,
+                                            ),
+                                          );
+                                        },
+                                        alignment: Alignment.bottomRight,
+                                        icon: const Icon(Icons.delete))
                                   ],
                                 ),
                               ),

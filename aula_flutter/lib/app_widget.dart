@@ -2,6 +2,7 @@ import 'package:aula_flutter/pages/home/home_page.dart';
 import 'package:aula_flutter/pages/login/login_page.dart';
 import 'package:aula_flutter/pages/splash/splash_page.dart';
 import 'package:aula_flutter/pages/lembretes/lembrete_page.dart';
+import 'package:aula_flutter/pages/usuarios/usuarios_page.dart';
 import 'package:aula_flutter/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,7 @@ class AppWidget extends StatelessWidget {
         Routes.LOGIN: (context) => const LoginPage(),
         Routes.HOME: (context) => const HomePage(),
         Routes.LEMBRETES: (context) => const LembretePage(),
+        Routes.USUARIOS: (context) => const UsuarioPage(),
       },
       initialRoute: Routes.INITIAL,
     );

@@ -17,6 +17,12 @@ class Database {
       email: "Matheus",
       senha: "123",
     ),
+    Usuario(
+      codigo: 2,
+      nome: 'Gabriel',
+      email: "gabriel@gmail.com",
+      senha: "123",
+    ),
   ];
 
   List<Lembrete> lembretes = [
@@ -51,8 +57,17 @@ class Database {
     lembretes.add(lembrete);
   }
 
-  void removeLembrete(int index) {
-    lembretes.removeAt(index);
+  void removeLembrete(Lembrete lembrete) {
+    lembretes.remove(lembrete);
+  }
+
+  bool duplicatedLembrete(value) {
+    for (var lembrete in lembretes) {
+      if (lembrete.titulo == value) {
+        return true;
+      }
+    }
+    return false;
   }
 
   Usuario? login(String email, String senha) {
